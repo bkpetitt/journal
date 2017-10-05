@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Journals - show</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+
+    <body>
+      <h1>Show Journal Entry -<small>views/journals/show.ejs</small></h1>
+      <% console.log('journal - views/journals/show.ejs'); %>
+      <p>
+        <strong><a href="/journals">Back to Journal Entries</a></strong>
+      </p>
+      <br />
+      <div>
+          <p>
+            <strong> Entry Title: </strong> <%= journal.enttitle %>
+          </p>
+          <p>
+            <strong> Entry Date: </strong> <%= journal.entdate %>
+            <strong> Entry Reference: </strong> <%= journal.entperiod %>
+          </p>
+          <p>
+            <strong> Journal Entry: </strong> <%= journal.journalentry %>
+          </p>
+          <p>
+            <strong> User ID: </strong> <%= journal.userid %>
+            <strong> User Entry ID: </strong> <%= journal.entryid %>
+            <strong> Code: </strong> <%= journal.periodcode %>
+          </p>
+          <p>
+            <strong> Date Convert: </strong> <%= journal.dateconvt %>
+            <strong> DB ID: </strong> <%= journal.dbid %>
+          </p>
+          <br />
+            <form method="POST" action="/journals/<%= journal._id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete Entry">
+            </form>
+            <a href="/journals/<%= journal._id %>/edit">
+                <button>Edit Entry</button>
+            </a>
+            <br />
+            <a href="/reviews/new?<%= journal._id %> ">
+              <button>Add Journal Entry</button>
+            </a>
+        </div>
+    </body>
+
+</html>

@@ -5,8 +5,56 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <h1><small>'journal - views/index.ejs')</small></h1>
-    <p>Welcome to <%= title %></p>
+    <h1><%= title %> - <small>journal - views/index.ejs</small></h1>
+    <% console.log('journal - views/index.ejs'); %>
+    <p><strong><%= subtitle %></strong></p>
+
+    <p>
+      <strong><a href="/journals">List all Journal Entries</a></strong>
+    </p>
+    <br />
+
+    <form method="POST" action="/journals">
+      <strong> Journal Entry Title: </strong>
+      <input type="text" name="enttitle" placeholder="Varsity Baseball vs WSHS">
+      <br />
+      <br />
+      <strong> Entry Date: </strong>
+      <input type="text" name="entdate" placeholder="01/01/2001">
+      <br />
+      <br />
+      <strong> Entry Reference: </strong>
+      <input list="period" type="text" name="entperiod" >
+      <datalist id="period">
+        <option value="Early Morning">
+        <option value="Morning">
+        <option value="Breakfast">
+        <option value="Midday">
+        <option value="Lunch">
+        <option value="Afternoon">
+        <option value="Breakfast">
+        <option value="Evening">
+        </datalist>
+
+      <br />
+      <br />
+      <strong> Journal Entry: </strong>
+      <textarea rows="10" cols="100" type="text" name="journalentry" placeholder="">
+      </textarea>
+      <br />
+      <br />
+      <strong> User ID: </strong>
+      <input type="text" name="userid" value="BKP03">
+      <strong> User Entry ID: </strong>
+      <input type="text" name="entryid" value="00000">
+      <strong> Code: </strong>
+      <input type="text" name="periodcode" value="04">
+      <strong> Date Convert: </strong>
+      <input type="text" name="dateconvt" value="20010101">
+      <strong> DB ID: </strong>
+      <input type="text" name="dbid" value="JLDB">
+      <br />
+      <input type="submit" value="Add Journal Entry">
+    </form>
   </body>
 </html>

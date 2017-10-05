@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Journal - View</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+
+    <body>
+      <h1>View Journal Entries<small> - views/journals/index.ejs</small></h1>
+      <% console.log('journal - views/journals/index.ejs'); %>
+      <p>
+        <strong><a href="/journals/new">Create a new Entry</a></strong>
+      </p>
+      <ol>
+        <p>
+        <% for (var i = 0; i < journals.length; i++) { %>
+          <% let journal = journals[i]; %>
+          <br />
+          <p>
+            <strong> Entry Title: </strong> <%= journal.enttitle %>
+          </p>
+          <p>
+            <strong> Entry Date: </strong> <%= journal.entdate %>
+            <strong> Entry Reference: </strong> <%= journal.entperiod %>
+          </p>
+          <p>
+            <strong> Entry: </strong> <%= journal.journalentry %>
+          </p>
+          <p>
+            <strong> User ID: </strong> <%= journal.userid %>
+            <strong> Code: </strong> <%= journal.periodcode %>
+            <strong> User Entry ID: </strong> <%= journal.entryid %>
+            <strong> Date Convert: </strong> <%= journal.dateconvt %>
+            <strong> DB ID: </strong> <%= journal.dbid %>
+          </p>
+          <a href="/journals/<%= journal._id %>">
+            <button>Go to Journal Entry</button>
+          </a>
+          <br />
+        </p>
+      <% } %>
+    </ol>
+  </body>
+</html>

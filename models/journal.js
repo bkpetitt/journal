@@ -4,18 +4,19 @@ var timestamps = require('mongoose-timestamp');
 
 // var Schema = mongoose.Schema;
 
-var ReviewSchema = require('./review');
-
 var Journal = mongoose.model('journal',
   {
     userid: String,
     entryid: String,
     dbid: String,
     entdate: String,
+    dateconvt: String,
     entperiod: String,
-    entry: String
-);
+    periodcode: String,
+    enttitle: String,
+    journalentry: String
+});
 
-  Journal.plugin(timestamps);
+//  Journal.plugin(timestamps);
 
 module.exports = Journal;
