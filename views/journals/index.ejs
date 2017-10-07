@@ -1,45 +1,85 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Journal - View</title>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-    </head>
+  <head>
+    <title>Journal - View</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
 
-    <body>
-      <h1>View Journal Entries<small> - views/journals/index.ejs</small></h1>
+  <body>
+    <div class="container">
+
+    <header>
+      <h1><%= title %></h1>
+      <h3><p><%= subtitle %></p></h3>
+      <h2>View Journal Entries</h2>
+      <p>journal - views/journals/index.ejs</p>
       <% console.log('journal - views/journals/index.ejs'); %>
-      <p>
-        <strong><a href="/journals/new">Create a new Entry</a></strong>
-      </p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/journals/new">Add Journal Entry</a></li>
+        <br>
+        <li><a href="#">HOME</a></li>
+        <br>
+        <li><a href="#">Search by Event</a></li>
+        <li><a href="#">Search by Date</a></li>
+        <li><a href="#">Search by Keyword</a></li>
+        <li><a href="#">Search by Event</a></li>
+      </ul>
+    </nav>
+
+    <article>
       <ol>
-        <p>
         <% for (var i = 0; i < journals.length; i++) { %>
           <% let journal = journals[i]; %>
-          <br />
-          <p>
-            <strong> Entry Title: </strong> <%= journal.enttitle %>
-          </p>
-          <p>
-            <strong> Entry Date: </strong> <%= journal.entdate %>
-            <strong> Entry Reference: </strong> <%= journal.entperiod %>
-          </p>
-          <p>
-            <strong> Entry: </strong> <%= journal.journalentry %>
-          </p>
-          <p>
-            <strong> User ID: </strong> <%= journal.userid %>
-            <strong> Code: </strong> <%= journal.periodcode %>
-            <strong> User Entry ID: </strong> <%= journal.entryid %>
-            <strong> Date Convert: </strong> <%= journal.dateconvt %>
-            <strong> DB ID: </strong> <%= journal.dbid %>
-          </p>
+          <% let holdEntry = journal.journalentry; %>
+            <% console.log(holdEntry); %>
+           <fieldset>
+            <legend> Journal Entry </legend>
+
+            <div class="fldname" id="title"> <strong> Entry Title: </strong></div>
+            <div class="fldname" id="field"><%= journal.enttitle %> </div>
+            <br>
+            <br>
+            <div class="fldname" id="title"> <strong> Entry Date: </strong> </div>
+            <div class="fldname" id="field"><%= journal.entdate %></div>
+            <div class="fldname" id="title"> <strong> Entry Reference: </strong> </div>
+            <div class="fldname" id="field"><%= journal.entperiod %> </div>
+            <br>
+            <br>
+            <div class="fldname" id="title"> <strong> Journal Entry: </strong></div>
+            <div> <textarea name="journalentry" > <%= journal.journalentry %>
+            </textarea></div>
+            <br>
+            <br>
+            <div class="fldname" id="title"><strong> User ID: </strong> </div>
+            <div class="fldname" id="field"><%= journal.userid %> </div>
+            <div class="fldname" id="title"><strong> Code: </strong> </div>
+            <div class="fldname" id="field"> <%= journal.periodcode %> </div>
+            <div class="fldname" id="title"><strong> User Entry ID: </strong> </div>
+            <div class="fldname" id="field"><%= journal.entryid %> </div>
+            <br>
+            <br>
+            <div class="fldname" id="title"><strong> Date Convert: </strong> </div>
+            <div class="fldname" id="field"><%= journal.dateconvt %> </div>
+            <div class="fldname" id="title"><strong> DB ID: </strong> </div>
+            <div class="fldname" id="field"><%= journal.dbid %> </div>
+            <br>
+            <br>
           <a href="/journals/<%= journal._id %>">
-            <button>Go to Journal Entry</button>
+            <button>Review Journal Entry</button>
           </a>
-          <br />
-        </p>
+          <br>
+          <br>
+        </fieldset>
+          <br>
       <% } %>
     </ol>
+  </article>
+
+  <footer>Copyright &copy; Brian K Petitt</footer>
+
   </body>
 </html>

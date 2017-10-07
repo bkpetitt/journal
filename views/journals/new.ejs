@@ -1,57 +1,92 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Journal - New</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
 
-    <head>
-        <title>Journal - New</title>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-    </head>
+  <body>
+    <div class="container">
 
-    <body>
-        <h1>New Journal Entry -<small> - views/journals/new.ejs</small></h1>
-        <% console.log('journal - views/journals/new.ejs'); %>
-        <p>
-            <a href="/journals">Back to Journals</a>
-        </p>
-        <form method="POST" action="/journals">
-          <strong> Entry Title: </strong>
-          <input type="text" name="enttitle" placeholder="Varsity Baseball vs WSHS">
-          <br />
-          <strong> Entry Date: </strong>
-          <input type="text" name="entdate" placeholder="01/01/2001">
-          <br />
-          <strong> Entry Reference: </strong>
-          <input list="period" type="text" name="entperiod" >
-          <datalist id="period">
-            <option value="0000-All Day">
-            <option value="0100-Early Morning">
-            <option value="0600-Morning">
-            <option value="0700-Breakfast">
-            <option value="1200-Midday">
-            <option value="1200-Lunch">
-            <option value="1300-Afternoon">
-            <option value="1800-Evening">
-            <option value="1800-Dinner">
-          </datalist>
+    <header>
+      <h1><%= title %></h1>
+      <h2>New Journal Entry</h2>
+      <p>journal - views/journals/new.ejs</p>
+      <% console.log('journal - views/journals/new.ejs'); %>
+      <h3><p><%= subtitle %></p></h3>
+    </header>
 
-          <br />
-          <strong> Journal Entry: </strong>
-          <textarea rows="10" cols="100" type="text" name="journalentry" value="journal.journalentry" placeholder="Enter Here.....">
-          </textarea>
-          <br />
-          <strong> User ID: </strong>
-          <input type="text" name="userid" value="BKP03">
-          <strong> User Entry ID: </strong>
-          <input type="text" name="entryid" value="00000">
-          <strong> Code: </strong>
-          <input type="text" name="periodcode" value="04">
-          <strong> Date Convert: </strong>
-          <input type="text" name="dateconvt" value="20010101">
-          <strong> DB ID: </strong>
-          <input type="text" name="dbid" value="JLDB">
-          <br />
-          <br />
-          <input type="submit" value="Add Journal Entry">
-        </form>
-    </body>
+    <nav>
+      <ul>
+        <li><a href="/journals">List all Journal Entries</a></li>
+        <br>
+        <li><a href="#">HOME</a></li>
+        <br>
+        <li><a href="#">Search by Event</a></li>
+        <li><a href="#">Search by Date</a></li>
+        <li><a href="#">Search by Keyword</a></li>
+        <li><a href="#">Search by Event</a></li>
+      </ul>
+    </nav>
 
+    <article>
+
+    <form method="POST" action="/journals">
+      <% let userid = "BKP04"; %>
+      <% let entryid = "00000"; %>
+      <% let periodcode = "9999"; %>
+      <% let dateconvt = "20010101"; %>
+      <% let dbid = "JLDB"; %>
+
+      <div class="fldname" id="title"> <strong> Entry Title: </strong></div>
+      <div class="fldname" id="field"><input type="text" name="enttitle" ></div>
+      <br> <br>
+      <div class="fldname" id="title"> <strong> Entry Date: </strong></div>
+      <div class="fldname" id="field"><input type="date" name="entdate"></div>
+      <br> <br>
+      <div class="fldname" id="title"> <strong> Entry Reference: </strong></div>
+      <div class="fldname" id="field"><input list="period" type="text" name="entperiod" ></div>
+      <datalist id="period">
+        <option value="0000-All Day">
+        <option value="0100-Early Morning">
+        <option value="0600-Morning">
+        <option value="0700-Breakfast">
+        <option value="1200-Midday">
+        <option value="1200-Lunch">
+        <option value="1300-Afternoon">
+        <option value="1800-Evening">
+        <option value="1800-Dinner">
+        <option value="2400-Midnight">
+      </datalist>
+      <br> <br>
+      <div class="fldname" id="title"> <strong> Journal Entry: </strong></div>
+      <div><textarea name="journalentry">
+      </textarea></div>
+      <br>
+      <br>
+
+      <div class="fldname" id="title"> User ID: </div>
+      <div class="fldname" id="field"><%= userid %></div>
+      <div class="fldname" id="title"> <strong> User Entry ID: </strong>  </div>
+      <div class="fldname" id="field"><%= entryid %></div>
+      <div class="fldname" id="title"> <strong> Code: </strong>  </div>
+      <div class="fldname" id="field"><%= periodcode %></div>
+      <br>
+      <br>
+      <div class="fldname" id="title"> <strong> Date Convert: </strong>  </div>
+      <div class="fldname" id="field"><%= dateconvt %></div>
+      <div class="fldname" id="title"> <strong> DB ID: </strong>  </div>
+      <div class="fldname" id="field"><%= dbid %></div>
+      <br>
+      <br>
+      <input type="hidden" name="userid" value=<%= userid %>
+      <input type="hidden" name="entryid" value=<%= entryid %>
+      <input type="hidden" name="periodcode" value=<%= periodcode %>
+      <input type="hidden" name="dateconvt" value=<%= dateconvt %>
+      <input type="hidden" name="dbid" value=<%= dbid %>
+      <br>
+      <br>
+      <input type="submit" value="Add Journal Entry">
+    </form>
+  </body>
 </html>

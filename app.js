@@ -6,7 +6,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-
+var moment = require('moment');
+moment().format();
 require('dotenv').config();
 
 var mongoose = require('mongoose');

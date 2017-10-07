@@ -1,51 +1,88 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Journals - show</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
 
-    <head>
-        <title>Journals - show</title>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
-    </head>
+  <body>
+    <div class="container">
 
-    <body>
-      <h1>Show Journal Entry -<small>views/journals/show.ejs</small></h1>
+    <header>
+      <h1><%= title %></h1>
+      <h3><p><%= subtitle %></p></h3>
+      <h2>Show Journal Entry</h2>
+      <p>journal - views/journals/show.ejs'</p>
       <% console.log('journal - views/journals/show.ejs'); %>
-      <p>
-        <strong><a href="/journals">Back to Journal Entries</a></strong>
-      </p>
-      <br />
+    </header>
+
+      <nav>
+        <ul>
+          <li><a href="/journals">View to All Entries</a></li>
+          <br>
+          <li><a href="#">HOME</a></li>
+          <br>
+          <li><a href="#">Search by Event</a></li>
+          <li><a href="#">Search by Date</a></li>
+          <li><a href="#">Search by Keyword</a></li>
+          <li><a href="#">Search by Event</a></li>
+        </ul>
+      </nav>
+
+      <article>
       <div>
-          <p>
-            <strong> Entry Title: </strong> <%= journal.enttitle %>
-          </p>
-          <p>
-            <strong> Entry Date: </strong> <%= journal.entdate %>
-            <strong> Entry Reference: </strong> <%= journal.entperiod %>
-          </p>
-          <p>
-            <strong> Journal Entry: </strong> <%= journal.journalentry %>
-          </p>
-          <p>
-            <strong> User ID: </strong> <%= journal.userid %>
-            <strong> User Entry ID: </strong> <%= journal.entryid %>
-            <strong> Code: </strong> <%= journal.periodcode %>
-          </p>
-          <p>
-            <strong> Date Convert: </strong> <%= journal.dateconvt %>
-            <strong> DB ID: </strong> <%= journal.dbid %>
-          </p>
-          <br />
+          <br>
+            <div class="fldname" id="title"> <strong> Entry Title: </strong> </div>
+            <div class="fldname" id="field" ><%= journal.enttitle %> </div>
+          <br>
+          <br>
+            <div class="fldname" id="title"> <strong> Entry Date: </strong></div>
+            <div class="fldname" id="field"> <%= journal.entdate %> </div>
+            <div class="fldname" id="title"> <strong> Entry Reference: </strong></div>
+            <div class="fldname" id="field"> <%= journal.entperiod %> </div>
+            <br>
+            <br>
+            <div class="fldname" id="title"> <strong> Journal Entry: </strong></div>
+            <div> <textarea name="journalentry" > <%= journal.journalentry %>
+            </textarea></div>
+            <br>
+            <br>
+
+            <div class="fldname" id="title"> <strong> User ID: </strong>  </div>
+            <div class="fldname" id="field"><%= journal.userid %></div>
+
+            <div class="fldname" id="title"> <strong> User Entry ID: </strong>  </div>
+            <div class="fldname" id="field"><%= journal.entryid %></div>
+            <div class="fldname" id="title"> <strong> Code: </strong>  </div>
+            <div class="fldname" id="field"><%= journal.periodcode %></div>
+            <br>
+            <br>
+            <div class="fldname" id="title"> <strong> Date Convert: </strong>  </div>
+            <div class="fldname" id="field"><%= journal.dateconvt %></div>
+            <div class="fldname" id="title"> <strong> DB ID: </strong>  </div>
+            <div class="fldname" id="field"><%= journal.dbid %></div>
+            <br>
+            <br>
+          <br>
             <form method="POST" action="/journals/<%= journal._id %>">
                 <input type="hidden" name="_method" value="DELETE">
-                <input type="submit" value="Delete Entry">
+                <input type="submit" value="Delete this Entry">
             </form>
+            <br>
             <a href="/journals/<%= journal._id %>/edit">
-                <button>Edit Entry</button>
+                <button>Edit Journal Entry</button>
             </a>
-            <br />
+            <br>
+            <br>
             <a href="/reviews/new?<%= journal._id %> ">
-              <button>Add Journal Entry</button>
+              <button>Create Journal Entry</button>
             </a>
         </div>
+      </article>
+
+      <footer>Copyright &copy; Brian K Petitt</footer>
+
+      </div>
     </body>
 
 </html>
