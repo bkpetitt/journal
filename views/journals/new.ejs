@@ -10,17 +10,18 @@
 
     <header>
       <h1><%= title %></h1>
+      <h3><p><%= subtitle %></p></h3>
       <h2>New Journal Entry</h2>
       <p>journal - views/journals/new.ejs</p>
       <% console.log('journal - views/journals/new.ejs'); %>
-      <h3><p><%= subtitle %></p></h3>
+
     </header>
 
     <nav>
       <ul>
         <li><a href="/journals">List all Journal Entries</a></li>
         <br>
-        <li><a href="#">HOME</a></li>
+        <li><a href="/">HOME</a></li>
         <br>
         <li><a href="#">Search by Event</a></li>
         <li><a href="#">Search by Date</a></li>
@@ -30,6 +31,8 @@
     </nav>
 
     <article>
+      <fieldset>
+        <legend> Journal Entry </legend>
 
     <form method="POST" action="/journals">
       <% let userid = "BKP04"; %>
@@ -38,14 +41,14 @@
       <% let dateconvt = "20010101"; %>
       <% let dbid = "JLDB"; %>
 
-      <div class="fldname" id="title"> <strong> Entry Title: </strong></div>
-      <div class="fldname" id="field"><input type="text" name="enttitle" ></div>
+      <div class="title"> Entry Title: </div>
+      <div class="field"><input type="text" size="65" name="enttitle" ></div>
       <br> <br>
-      <div class="fldname" id="title"> <strong> Entry Date: </strong></div>
-      <div class="fldname" id="field"><input type="date" name="entdate"></div>
+      <div class="title"> Entry Date: </div>
+      <div class="field-date"><input type="date" min="1962-01-01" name="entdate"></div>
       <br> <br>
-      <div class="fldname" id="title"> <strong> Entry Reference: </strong></div>
-      <div class="fldname" id="field"><input list="period" type="text" name="entperiod" ></div>
+      <div class="title"> Entry Reference: </div>
+      <div class="field"><input list="period" type="text" name="entperiod" ></div>
       <datalist id="period">
         <option value="0000-All Day">
         <option value="0100-Early Morning">
@@ -59,25 +62,24 @@
         <option value="2400-Midnight">
       </datalist>
       <br> <br>
-      <div class="fldname" id="title"> <strong> Journal Entry: </strong></div>
+      <div class="title"> Journal Entry: </div>
       <div><textarea name="journalentry">
       </textarea></div>
       <br>
       <br>
 
-      <div class="fldname" id="title"> User ID: </div>
-      <div class="fldname" id="field"><%= userid %></div>
-      <div class="fldname" id="title"> <strong> User Entry ID: </strong>  </div>
-      <div class="fldname" id="field"><%= entryid %></div>
-      <div class="fldname" id="title"> <strong> Code: </strong>  </div>
-      <div class="fldname" id="field"><%= periodcode %></div>
+      <div class="title"> User ID: </div>
+      <div class="field-display-only"><%= userid %></div>
+      <div class="title"> Entry ID:   </div>
+      <div class="field-display-only"><%= entryid %></div>
+      <div class="title"> Code:   </div>
+      <div class="field-display-only"><%= periodcode %></div>
       <br>
       <br>
-      <div class="fldname" id="title"> <strong> Date Convert: </strong>  </div>
-      <div class="fldname" id="field"><%= dateconvt %></div>
-      <div class="fldname" id="title"> <strong> DB ID: </strong>  </div>
-      <div class="fldname" id="field"><%= dbid %></div>
-      <br>
+      <div class="title"> Date Code: </div>
+      <div class="field-display-only"><%= dateconvt %></div>
+      <div class="title"> DB ID:   </div>
+      <div class="field-display-only"><%= dbid %></div>
       <br>
       <input type="hidden" name="userid" value=<%= userid %>
       <input type="hidden" name="entryid" value=<%= entryid %>
@@ -88,5 +90,10 @@
       <br>
       <input type="submit" value="Add Journal Entry">
     </form>
+  </fieldset>
+</article>
+
+<footer>Copyright &copy; Brian K Petitt</footer>
+
   </body>
 </html>

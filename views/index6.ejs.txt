@@ -31,11 +31,6 @@
         <legend> Journal Entry </legend>
 
     <form method="POST" action="/journals">
-      <% let userid = "BKP04"; %>
-      <% let entryid = "00000"; %>
-      <% let periodcode = "9999"; %>
-      <% let dateconvt = "20010101"; %>
-      <% let dbid = "JLDB"; %>
 
       <div class="title"> Entry Title: </div>
       <div class="field"> <input type="text" size="65" name="enttitle" > </div>
@@ -43,7 +38,7 @@
       <br>
       <br>
       <div class="title">   Entry Date:  </div>
-      <div class="field-date"> <input type="date" min="1962-01-01" name="entdate"> </div>
+      <div class="field-date"> <input type="date" name="entdate"> </div>
       <br>
       <br>
       <div class="title">   Entry Reference:  </div>
@@ -65,24 +60,21 @@
       <div> <textarea name="journalentry" >
       </textarea>  </div>
       <br>
-      <div class="title"> User ID: </div>
-      <div class="field-display-only"><%= userid %></div>
-      <div class="title">  Entry ID:   </div>
-      <div class="field-display-only"><%= entryid %></div>
-      <div class="title">  Code:   </div>
-      <div class="field-display-only"><%= periodcode %></div>
       <br>
-      <br>
-      <div class="title"> Date Code: </div>
-      <div class="field-display-only"><%= dateconvt %></div>
-      <div class="title">  DB ID:   </div>
-      <div class="field-display-only"><%= dbid %></div>
-      <br>
-      <input type="hidden" name="userid" value=<%= userid %>
-      <input type="hidden" name="entryid" value=<%= entryid %>
-      <input type="hidden" name="periodcode" value=<%= periodcode %>
-      <input type="hidden" name="dateconvt" value=<%= dateconvt %>
-      <input type="hidden" name="dbid" value=<%= dbid %>
+
+        <div class="title">   User ID:   </div>
+        <div class="field"> <input type="text" name="userid" value="BKP03">  </div>
+
+        <div class="title">   Entry ID:   </div>
+        <div class="field"> <input type="text" name="entryid" value="00000">  </div>
+        <div class="title">   Code:   </div>
+        <div class="field"> <input type="text" name="periodcode" value="9999">  </div>
+        <br>
+        <br>
+        <div class="title">   Date Convert:   </div>
+        <div class="field"> <input type="text" name="dateconvt" value="20010101">  </div>
+        <div class="title">  DB ID:   </div>
+        <div class="field"> <input type="text" name="dbid" value="JLDB">  </div>
       <br>
       <br>
       <input type="submit" value="Add Journal Entry">

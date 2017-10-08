@@ -20,7 +20,7 @@
         <ul>
           <li><a href="/journals">View to All Entries</a></li>
           <br>
-          <li><a href="#">HOME</a></li>
+          <li><a href="/">HOME</a></li>
           <br>
           <li><a href="#">Search by Event</a></li>
           <li><a href="#">Search by Date</a></li>
@@ -30,37 +30,43 @@
       </nav>
 
       <article>
+        <fieldset>
+          <legend> Journal Entry </legend>
+
       <div>
           <br>
-            <div class="fldname" id="title"> <strong> Entry Title: </strong> </div>
-            <div class="fldname" id="field" ><%= journal.enttitle %> </div>
+            <div class="title"> Entry Title: </div>
+            <div class="field" ><%= journal.enttitle %> </div>
           <br>
           <br>
-            <div class="fldname" id="title"> <strong> Entry Date: </strong></div>
-            <div class="fldname" id="field"> <%= journal.entdate %> </div>
-            <div class="fldname" id="title"> <strong> Entry Reference: </strong></div>
-            <div class="fldname" id="field"> <%= journal.entperiod %> </div>
+            <div class="title"> Entry Date:  </div>
+            <div class="field-date"> <%= journal.entdate %> </div>
             <br>
             <br>
-            <div class="fldname" id="title"> <strong> Journal Entry: </strong></div>
-            <div> <textarea name="journalentry" > <%= journal.journalentry %>
-            </textarea></div>
+            <div class="title"> Entry Reference:  </div>
+            <div class="field"> <%= journal.entperiod %> </div>
+            <br>
+            <br>
+            <div class="title"> Journal Entry:  </div>
+            <div class="field-entry"><%= journal.journalentry %> </div>
+            <!-- <div> <textarea name="journalentry" > <%= journal.journalentry %>
+            </textarea></div> -->
             <br>
             <br>
 
-            <div class="fldname" id="title"> <strong> User ID: </strong>  </div>
-            <div class="fldname" id="field"><%= journal.userid %></div>
+            <div class="title"> User ID:  </div>
+            <div class="field-display-only"><%= journal.userid %></div>
 
-            <div class="fldname" id="title"> <strong> User Entry ID: </strong>  </div>
-            <div class="fldname" id="field"><%= journal.entryid %></div>
-            <div class="fldname" id="title"> <strong> Code: </strong>  </div>
-            <div class="fldname" id="field"><%= journal.periodcode %></div>
+            <div class="title"> Entry ID:  </div>
+            <div class="field-display-only"><%= journal.entryid %></div>
+            <div class="title"> Code:  </div>
+            <div class="field-display-only"><%= journal.periodcode %></div>
             <br>
             <br>
-            <div class="fldname" id="title"> <strong> Date Convert: </strong>  </div>
-            <div class="fldname" id="field"><%= journal.dateconvt %></div>
-            <div class="fldname" id="title"> <strong> DB ID: </strong>  </div>
-            <div class="fldname" id="field"><%= journal.dbid %></div>
+            <div class="title"> Date Code: </div>
+            <div class="field-display-only"><%= journal.dateconvt %></div>
+            <div class="title"> DB ID:  </div>
+            <div class="field-display-only"><%= journal.dbid %></div>
             <br>
             <br>
           <br>
@@ -78,6 +84,7 @@
               <button>Create Journal Entry</button>
             </a>
         </div>
+        </fieldset>
       </article>
 
       <footer>Copyright &copy; Brian K Petitt</footer>

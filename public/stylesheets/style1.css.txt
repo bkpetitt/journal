@@ -10,72 +10,64 @@ div.container {
 
 .fldname {
   color: black;
+  /*font-weight: bold;*/
   position: static;
   display: inline-block;
   vertical-align: text-top;
-  /*font-weight: bold;*/
+  /*margin-left: 270px;*/
 }
-.title {
+#title {
   color: black;
   font-weight: bold;
-  position: static;
-  display: inline-block;
-  vertical-align: text-top;
+  width: 155px;
+  position: relative;
+  border:  1px solid #ccc;
+  /*border: none*/
+  /*box-sizing: border-box;
+  background-color: #f8f8f8;
+  border: 2px solid #ccc;
+  top: 0px;
+  left: 0px;*/
+}
+#field {
+  color: blue;
+  font-weight: normal;
+  position: relative;
+  /*box-sizing: border-box;*/
+  /*background-color: #f8f8f8;*/
+  background-color: pink;
+  border: 2px solid #ccc;
+  padding-left: 1em;
   padding-right: 1em;
-  border: none;
-  /*width: 155px;*/
-  /*border:  1px solid green;*/
-  /*padding-right: 1em*/
-
+  /*top: 0px;
+  left: 0px;*/
 }
-.field {
-  color: blue;
-  font-weight: normal;
-  position: relative;
-  display: inline-block;
-  vertical-align: text-top;
-  padding-top: 4px;
-  padding-right: 5em;
-  border: none;
-  /*border:  1px solid yellow;*/
-}
-
-.field-date {
-  color: blue;
-  font-weight: normal;
-  position: relative;
-  vertical-align: text-top;
-  display: inline-block;
-  padding-top: 4px;
-  padding-right: 5em;
-}
-.field-entry {
+#field-entry {
   color: blue;
   font-weight: normal;
   width: 725px;
   height:110px;
   position: relative;
+  /*box-sizing: border-box;*/
   background-color: #f8f8f8;
   border: 2px solid #ccc;
   padding: 1em;
   overflow: auto;
+  top: 0px;
   left: 0px;
 }
-.field-display-only {
-  color: white;
+#field-date {
+  color: blue;
   font-weight: normal;
   position: relative;
-  vertical-align: text-top;
-  display: inline-block;
-  background-color: #ccc;
-  padding-top: 1px;
-  padding-left: 1em;
-  padding-right: 2em;
-  /*border: none;*/
+  /*box-sizing: border-box;*/
+  background-color: #f8f8f8;
   border: 2px solid #ccc;
-  /*border:  1px solid yellow;*/
+  padding-left: 1em;
+  overflow: auto;
+  top: 0px;
+  left: 0px;
 }
-
 header, footer {
     padding: 1em;
     color: white;
@@ -108,7 +100,10 @@ article {
 }
 
 p {
-  font-weight: normal;
+    /*margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;*/
 }
 
 a {
@@ -127,10 +122,10 @@ legend {
 }
 input {
   color: black;
+  /*width: 50;*/
   background-color: #f8f8f8;
   border: 2px solid #ccc;
   padding: 2px;
-  /*width: 50;*/
 }
 input[type=text] {
   float: left;
@@ -141,7 +136,9 @@ input[type=text] {
 input[type=date] {
   float: left;
   color: blue;
+  size: 35em;
   border: 2px solid #ccc;
+  box-sizing: border-box;
 }
 textarea {
   width: 725px;
@@ -157,4 +154,5 @@ textarea {
   word-break: keep-all;
   white-space: normal;
   word-wrap: normal;
+
 }
