@@ -20,9 +20,11 @@
 
     <nav>
       <ul>
-      <li><a href="/journals">List All Journal Entries</a></li>
-      <br>
       <li><a href="/">HOME</a></li>
+      <br>
+      <li><a href="/journals/new">Add Journal Entry</a></li>
+      <br>
+      <li><a href="/journals">List All Journal Entries</a></li>
       <br>
       <li><a href="#">Search by Event</a></li>
       <li><a href="#">Search by Date</a></li>
@@ -38,8 +40,10 @@
       <form method="POST" action="/journals/<%= journal._id %>">
           <input type="hidden" name="_method" value="PUT">
           <br>
+          <% jlTitle = journal.enttitle; %>
+          <% fldSize = jlTitle.length+5; %>
           <div class="title"> Entry Title:  </div>
-          <div class="field"><input type="text" name="enttitle" value="<%= journal.enttitle %>"></div>
+          <div class="field"><input type="text" name="enttitle" size="<%= fldSize %>" value="<%= journal.enttitle %>"></div>
           <br>
           <br>
           <div class="title"> Entry Date:  </div>
