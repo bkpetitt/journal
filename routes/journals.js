@@ -92,7 +92,7 @@ router.get('/:id', function(req, res) {
 
   journal.findById(id, function(err, journal) {
     console.log('journals.js using router.get/id -journal.findById');
-    res.render('journals/show', { journals: journals, title: appTitle, subtitle: appSubTitle, periodobj: periodobj });
+    res.render('journals/show', { journal: journal, title: appTitle, subtitle: appSubTitle  });
   });
 });
 
@@ -147,7 +147,7 @@ router.post('/:id', function(req, res) {
 
 // 'Delete' route
 router.delete('/:id', function(req, res) {
-  console.log('journals.js using router.delete/id');
+  console.log('journals.js using router.delete/id: ', req.params.id);
   let id = req.params.id;
 
   journal.findByIdAndRemove(id, function(err) {
