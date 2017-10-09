@@ -1,0 +1,11 @@
+[
+  { "code": "0000", "reference": "All Day" },
+  { "code": "0100", "reference": "Early Morning" },
+  { "code": "0600", "reference": "Morning" },
+  { "code": "0700", "reference": "Breakfast" },
+  { "code": "1200", "reference": "Midday" },
+  { "code": "1200", "reference": "Lunch" },
+  { "code": "1300", "reference": "Afternoon" },
+  { "code": "1800", "reference": "Evening" }
+  { "code": "1800", "reference": "Dinner" }
+]

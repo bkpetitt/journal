@@ -7,6 +7,7 @@
   </head>
 
   <body>
+
     <div class="container">
 
     <header>
@@ -16,6 +17,7 @@
       <p>journal - views/journals/index.ejs</p>
       <% console.log('journal - views/journals/index.ejs'); %>
     </header>
+    <% console.log('period obj: ', periodobj); %>
 
     <nav>
       <ul>
@@ -33,6 +35,7 @@
     </nav>
 
     <article>
+
       <ol>
         <% for (var i = 0; i < journals.length; i++) { %>
           <% let journal = journals[i]; %>
@@ -51,17 +54,16 @@
             <div class="field"><%= journal.entperiod %> </div>
             <br>
             <br>
+
             <div class="title"> Journal Entry: </div>
             <div class="field-entry"><%= journal.journalentry %> </div>
 
-            <!-- <div> <textarea name="journalentry" ><%= journal.journalentry %>
-            </textarea>  </div> -->
             <br>
             <br>
             <div class="title"> User ID: </div>
             <div class="field-display-only"><%= journal.userid %> </div>
             <div class="title"> Code: </div>
-            <div class="field-display-only"> <%= journal.periodcode %> </div>
+            <div class="field-display-only"><%= journal.periodcode %> </div>
             <div class="title"> User Entry ID: </div>
             <div class="field-display-only"><%= journal.entryid %> </div>
             <br>

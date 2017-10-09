@@ -5,6 +5,11 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
     <div class="container">
 
     <header>
@@ -15,6 +20,8 @@
       <% console.log('journal - views/index.ejs'); %>
     </header>
 
+    <% console.log('period obj: ', periodobj); %>
+
     <nav>
       <ul>
         <li><a href="/journals">List all Journal Entries</a></li>
@@ -24,7 +31,6 @@
         <li><a href="#">Search by Keyword</a></li>
         <li><a href="#">Search by Event</a></li>
         <br>
-        <li><a href="/journals/indextv">Search TV</a></li>
         <br>
       </ul>
     </nav>
@@ -42,7 +48,6 @@
 
       <div class="title"> Entry Title: </div>
       <div class="field"> <input type="text" size="65" name="enttitle" > </div>
-      <!-- <div class="fldname" id="field"> <input type="text" size="65" name="enttitle" > </div> -->
       <br>
       <br>
       <div class="title">   Entry Date:  </div>

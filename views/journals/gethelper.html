@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta charset="utf-8"> -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <link href='https://fonts.googleapis.com/css?family=Poller+One' rel='stylesheet' type='text/css'> -->
+    <title>TV Search</title>
+    <style>
+    /*<style media="screen">*/
+      body {
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+      }
+      #result {
+        display: block;
+        font-size: 25px;
+        text-align: left;
+        width: 900px;
+        margin: 5px;
+      }
+      #cast {
+          display: block;
+          font-size: 25px;
+          text-align: left;
+          width: 200px;
+          margin: 5px;
+      }
+      #poster {
+        display: inline-block;
+        width: 150px;
+        height: 200px;
+      }
+      #movieinfo {
+        position: relative;
+        width: 950px;
+        left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+    <header>
+      <h1><%= title %></h1>
+      <h3><p><%= subtitle %></p></h3>
+      <h2>Welcome to My World</h2>
+      <p>'journal - /journals/views/indextv.ejs'</p>
+      <% console.log('journal - /journals/views/indextv.ejs'); %>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/journals">List all Journal Entries</a></li>
+        <br>
+        <li><a href="#">Search by Event</a></li>
+        <li><a href="#">Search by Date</a></li>
+        <li><a href="#">Search by Keyword</a></li>
+        <li><a href="#">Search by Event</a></li>
+        <br>
+        <li><a href="/journals/indextv">Search TV</a></li>
+        <br>
+      </ul>
+    </nav>
+
+    <article>
+      <fieldset>
+        <legend> Helper File </legend>
+
+    <input id="tvshow" type="text" />
+    <button>TV Show Search</button>
+    <ol id="result"></ol>
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      var button = document.querySelector('button')
+      var resultContainer = document.querySelector('#result')
+
+      button.addEventListener('click', function( ) {
+
+        let showName = $('#tvshow').val();
+        let posterNo = 'https://cdn.amctheatres.com/Media/Default/Images/noposter.jpg'
+        console.log(showName);
+        $.ajax('http://api.tvmaze.com/search/shows?q=' + showName )
+          .done(function(response) {
+
+            $('#result').empty();
+            console.log('res : ',response);
+
+            for (var i = 0; i < response.length; i++) {
+              let tvshow = response[i];
+              console.log('status: ', tvshow.show.status, ' - ',i,' of ',response.length);
+              continueLoop = false;
+              if (tvshow.show.status == 'Running' || tvshow.show.status == 'Ended') {
+                continueLoop = true; };
+              if (tvshow.show.status == 'In Development') {
+                continueLoop = false; };
+              if (tvshow.show.network == null ) {
+                continueLoop = false; };
+
+              if (continueLoop == true) {
+                let title = tvshow.show.name;
+                let showID = tvshow.show.id;
+                let summary = tvshow.show.summary;
+                console.log(title, showID, summary);
+/*              Build 'movie' Link   */
+                let movieAdr = tvshow.show.url;
+                console.log('network: ',tvshow.show.network);
+/*              Build 'movie poster' Link   */
+                console.log('image: ',tvshow.show.image);
+                if (tvshow.show.image == null) {
+                  posterAdr = posterNo;
+                } else {
+                  posterAdr = tvshow.show.image.medium;
+                };
+                let network = tvshow.show.network.name;
+                if (network == null) { network = 'Unk '; };
+
+                let hldDate = tvshow.show.premiered
+                if (hldDate == null) {
+                  relDate = 'Unknown'
+                } else {
+                  relDate = hldDate.substr(5,2)+'/'+hldDate.substr(8,2)+'/'+hldDate.substr(0,4)
+                };
+
+                if (tvshow.show.summary.length == 0) {summary = 'No Summary Found'};
+
+                let showData = '<li><h3><strong>TITLE: </strong><a href=' + movieAdr +' target="_blank"> ' + title + '</a></h3><p><div id="poster"><img src= "' + posterAdr + '"></a></div></p><p><div id="movieinfo"><strong>Summary: </strong> '+ summary +'</p><p><strong>Release Date: </strong> '+ relDate + '<strong>   Network: </strong>'+ network +'<strong>   Show ID: </strong>'+ showID +' </p></li></div>';
+
+                $('#result').append(showData);
+
+                let castMember = 'http://api.tvmaze.com/shows/'+showID+'/cast';
+                console.log('Cast: ', castMember);
+                $.ajax(castMember)
+                  .done(function(castResp) {
+
+                    $('#castResp').empty();
+                    console.log(castResp);
+                    let castCnt = 4;
+                    if (castResp.length < 4) { castCnt = castResp.length }
+
+                    for (var cnt = 0; cnt < castCnt; cnt++) {
+                      let castshow = castResp[cnt];
+                      let castID = castshow.person.id;
+                      let castName = castshow.person.name;
+                      let castUrl = castshow.person.url;
+                      let castPic = castshow.person.image.medium;
+                      let characterName = castshow.character.name;
+
+                      let castData = '<li><h3><strong>Name: </strong><a href=' + castUrl +' target="_blank"> ' + castName + '</a></h3><p><div id="poster"><img src= "' + castPic + '"></a></div></p><p><div id="castinfo"><strong>Character Name: </strong> '+ characterName +'<strong> ID: </strong> '+ castID + '<strong> Show ID: </strong>'+ showID +' </p></li></div>';
+
+                      $('#result').append(castData);
+
+                  }
+                  console.log('cast: 1 ', cnt, ' - ', castResp[1])
+                  console.log('cast: 2 ', cnt, ' - ', castResp[2])
+                  console.log('cast: 3 ', cnt, ' - ', castResp[3])
+                  console.log('cast: 4 ', cnt, ' - ', castResp[4])
+                })
+
+              }
+            }
+            console.log(response);
+          })
+          .fail(function(error) {
+            console.log(error);
+        });
+      });
+    </script>
+  </fieldset>
+</article>
+
+<footer>Copyright &copy; Brian K Petitt</footer>
+
+  </div>
+  </body>
+</html>
