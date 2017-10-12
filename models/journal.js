@@ -7,14 +7,19 @@ var timestamps = require('mongoose-timestamp');
 var Journal = mongoose.model('journal',
   {
     userid: String,
-    entryid: String,
-    dbid: String,
     entdate: String,
-    dateconvt: String,
     entperiod: String,
-    periodcode: String,
     enttitle: String,
-    journalentry: String
+    journalentry: String,
+    conversation: String,
+    entevent: String,
+    meal: String,
+    entertain: String,
+    entertainurl: String,
+    entryid: String,
+    dateconvt: String,
+    periodcode: String,
+    dbid: String
 });
 
 //  Journal.plugin(timestamps);

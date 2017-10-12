@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Journal - Search</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <div class="container">
+
+    <header>
+      <h1><%= title %></h1>
+      <h3><p><%= subtitle %></p></h3>
+      <h2>Search Journal Entries - by Date</h2>
+      <p>journal - views/journals/search.ejs</p>
+      <% console.log('journal - views/journals/search.ejs'); %>
+    </header>
+
+
+    <% let jnlcnt = journals.length; %>
+    <%= journals[1].entdate %>
+    <%= jnlcnt %>
+
+    <nav>
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <br>
+        <li><a href="/journals/new">Add Journal Entry</a></li>
+        <br>
+        <li><a href="/journals">List All Journal Entries</a></li>
+        <br>
+        <li><a href="#">Search by Event</a></li>
+        <li><a href="#">Search by Date</a></li>
+        <li><a href="#">Search by Keyword</a></li>
+        <li><a href="#">Search by Event</a></li>
+      </ul>
+    </nav>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+
+    <article>
+      <br>
+      <input id="start" type="date" name="startdate">
+      <button>Enter</button>
+      <ol id="result"></ol>
+      <br>
+    </article>
+
+    <script type="text/javascript">
+      var button = document.querySelector('button')
+      var resultContainer = document.querySelector('#result')
+
+      button.addEventListener('click', function( ) {
+        $('#result').empty();
+        let jnlhld = [];
+        let jnlcnt = <%= jnlcnt %>;
+        jnlhld = <%= journals %>
+        let startdate = $('#start').val();
+        console.log('startdate: ', startdate);
+
+
+        for (var i = 0; i < jnlcnt2 ; i++) {
+          recfound = false;
+          let journalfind = jnlhld[i];
+          console.log(`journal date ${i}: `, journalfind[i].entdate );
+
+          if ( journalfind.entdate == startdate) {
+            recfound = true; }
+
+          if (recfound == true) {
+            $('#result').append( '<div class="title"> Entry Title: </div><div class="field">'+journalfind.enttitle+' </div><br><div class="title"> Entry Date: </div><div class="field-date">' + journalfind.entdate + '</div><div class="title"> Entry Reference: </div><div class="field">' + journalfind.entperiod + '</div> <br> <br> ');
+            }
+          }
+          console.log(`pass journal date ${i}: `,journals[i].entdate)
+          console.log('respone: ',response);
+        })
+        let startdate = $('#start').val();
+        console.log('startdate: ', startdate)
+        console.log('result: ', result);
+      </script>
+      <footer>Copyright &copy; Brian K Petitt</footer>
+    </body>
+</html>

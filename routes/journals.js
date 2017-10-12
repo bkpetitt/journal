@@ -7,30 +7,32 @@ var journal = require('../models/journal');
 // moment().format();
 
 // ===========
+console.log('journal.js - Build periodobj');
 var fs = require("fs");
 var content = fs.readFileSync("./public/datalists/periodref.json");
-
-console.log("Output Content: ", content);
+// console.log("Output Content: ", content);
 var string = content;
 var periodobj = JSON.parse(string);
-console.log("obj: ", periodobj);
+console.log('periodobj size: ', periodobj.length)
+// console.log("obj: ", periodobj);
 
 // ===========
 
 let appTitle ='My Daily Adventures';
 let appSubTitle ='The Story of My Life';
-console.log('title: ',appTitle,'  subtitle: ', appSubTitle);
+// console.log('title: ',appTitle,'  subtitle: ', appSubTitle);
 //
 // function to entperiod string
 function findRef(vtime) {
-  console.log('findRef');
+  console.log('journal.js - findRef');
   let valid = true;
   let lCnt = 0;
   let cMax = periodobj.length;
   while(valid=true) {
     if (periodobj[lCnt].refcode == vtime) {
-      return periodobj[lCnt].refperiod;
       valid = false;
+      console.log('findRef - vtime: ', vtime, periodobj[lCnt].refperiod);
+      return periodobj[lCnt].refperiod;
     }
     lCnt++;
     if(lCnt == cMax) {
@@ -43,14 +45,38 @@ function findRef(vtime) {
 router.get('/', function(req, res) {
   console.log('journals.js using router.get/');
   journal.find(function(err, journals) {
-    res.render('journals/index', { journals: journals, title: appTitle, subtitle: appSubTitle, periodobj: periodobj });
+    res.render('journals/index', {
+      journals: journals,
+      title: appTitle,
+      subtitle: appSubTitle,
+      periodobj: periodobj
+    });
   });
 });
 
 // 'New' route
 router.get('/new', function(req, res) {
-  console.log('journals.js using router.get/new');
-  res.render('journals/new', { journals: journals, title: appTitle, subtitle: appSubTitle, periodobj: periodobj });
+  console.log('journals.js using router.get/new **');
+  console.log('journals: ', journal);
+  res.render('journals/new', {
+    journal: journal,
+    title: appTitle,
+    subtitle: appSubTitle,
+    periodobj: periodobj
+  });
+});
+
+// 'search' route
+router.get('/search', function(req, res) {
+  console.log('journals.js using router.get/search');
+  journal.find(function(err, journals) {
+    res.render('journals/search', {
+      journals: journals,
+      title: appTitle,
+      subtitle: appSubTitle,
+      periodobj: periodobj
+    });
+  });
 });
 
 // 'Create' route

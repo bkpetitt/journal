@@ -46,7 +46,7 @@ app.use(methodOverride(function (req, res) {
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+// a url http: localhost:3000/ === router
 app.use('/', index);
 app.use('/journals', journals);
 // app.use('/users', users);

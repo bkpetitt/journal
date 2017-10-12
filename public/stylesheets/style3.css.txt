@@ -43,7 +43,7 @@ div.container {
 .field-title {
   color: blue;
   font-weight: normal;
-  width: 18em;
+  width: 20em;
   position: relative;
   display: inline-block;
   vertical-align: text-top;
@@ -89,15 +89,6 @@ div.container {
   /*border:  1px solid yellow;*/
 }
 .field-checkbox {
-  color: blue;
-  font-weight: normal;
-  position: relative;
-  display: inline-block;
-  vertical-align: text-top;
-  padding-top: 8px;
-  padding-right: 1em;
-}
-.field-radio {
   color: blue;
   font-weight: normal;
   position: relative;

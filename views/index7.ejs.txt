@@ -19,7 +19,8 @@
       <p>journal - views/index.ejs</p>
       <% console.log('journal - views/index.ejs'); %>
     </header>
-
+<%= periodobj[0].refcode %>
+<%= periodobj[0].refperiod %>
     <nav>
       <ul>
         <li><a href="/journals">List all Journal Entries</a></li>
@@ -56,7 +57,7 @@
       <div class="field"> <input list="period" type="text" name="entperiod" >  </div>
       <datalist id="period">
         <option value="0000-All Day">
-        <option value="0100-Early AM">
+        <option value="0100-Early Morning">
         <option value="0600-Morning">
         <option value="0700-Breakfast">
         <option value="1200-Midday">
@@ -73,65 +74,45 @@
       <div> <textarea name="journalentry" >
       </textarea>  </div>
       <br>
-      <fieldset class="subgroup" id="conversation"  >
+      <fieldset class="subgroup" >
         <legend>Conversation</legend>
-        <div>
-        <div class="field-title-checkbox"><label for="radioc1">Meeting:</label></div>
-        <div class="field-radio"><input type="radio" id="radioc1" name="conversation" value="meeting"></div>
-        <div class="field-title-checkbox"><label for="radioc2">Phone:</label></div>
-        <div class="field-radio"><input type="radio" id="radioc2" name="conversation" value="telephone"></div>
-        <div class="field-title-checkbox"><label for="radioc3">Email:</label></div>
-        <div class="field-radio"><input type="radio" id="radioc3" name="conversation" value="email"></div>
-        <div class="field-title-checkbox"><label for="radioc4">News:</label></div>
-        <div class="field-radio"><input type="radio" id="radioc4" name="conversation" value="news"></div>
-        <div class="field-title-checkbox"><label for="radioc5">Letter:</label></div>
-        <div class="field-radio"><input type="radio" id="radioc5" name="conversation" value="letter"></div>
-        </div>
+        <div class="field-title-checkbox">Meeting: </div>
+        <div class="field-checkbox"><input type="checkbox" name="meeting" value="meeting"> </div>
+        <div class="field-title-checkbox">Phone: </div>
+        <div class="field-checkbox"><input type="checkbox" name="telephone" value="telephone"> </div>
+        <div class="field-title-checkbox">Email: </div>
+        <div class="field-checkbox"><input type="checkbox" name="email" value="email"> </div>
       </fieldset>
-      <fieldset class="subgroup" id="event" >
-        <legend>Event</legend>
-        <div>
+      <fieldset class="subgroup" >
+        <legend>?Event?</legend>
         <div class="field-title-checkbox">Workday: </div>
-        <div class="field-radio"><input type="radio" id="radioC1" name="entevent" value="workday"> </div>
+        <div class="field-checkbox"><input type="checkbox" name="workday" value="workday"> </div>
         <div class="field-title-checkbox">Weekend: </div>
-        <div class="field-radio"><input type="radio" id="radioC2" name="entevent" value="weekend"> </div>
+        <div class="field-checkbox"><input type="checkbox" name="weekend" value="weekend"> </div>
         <div class="field-title-checkbox">School: </div>
-        <div class="field-radio"><input type="radio" id="radioC3" name="entevent" value="school"> </div>
+        <div class="field-checkbox"><input type="checkbox" name="school" value="school"> </div>
         <div class="field-title-checkbox">Vacation: </div>
-        <div class="field-radio"><input type="radio" id="radioC4" name="entevent" value="vacation"> </div>
-        <div class="field-title-checkbox">Sickday: </div>
-        <div class="field-radio"><input type="radio" id="radioC5" name="entevent" value="sickday"> </div>
-        </div>
+        <div class="field-checkbox"><input type="checkbox" name="vacation" value="vacation"> </div>
       </fieldset>
-      <fieldset class="subgroup" id="meal" >
+      <fieldset class="subgroup">
         <legend>Meal</legend>
-        <div>
         <div class="field-title-checkbox">Dine-in: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC1" name="meal" value="dinein"> </div>
+        <div class="field-checkbox"><input type="checkbox" name="dinein" value="dinein"> </div>
         <div class="field-title-checkbox">Dine-out: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC2" name="meal" value="dineout"> </div>
+        <div class="field-checkbox"><input type="checkbox" name="dineout" value="dineout"> </div>
         <div class="field-title-checkbox">Carry-out: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC3" name="meal" value="carryout"> </div>
-        <div class="field-title-checkbox">Self Bag: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC3" name="meal" value="selfbag"> </div>
-        <div class="field-title-checkbox">Snack: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC4" name="meal" value="snack"> </div>
-      </div>
+        <div class="field-checkbox"><input type="checkbox" name="carryout" value="carryout"> </div>
       </fieldset>
-      <fieldset class="subgroup" id="entertainment" >
+      <fieldset class="subgroup">
         <legend>Entertainment</legend>
-        <div>
         <div class="field-title-checkbox">Book: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC1" name="entertainment" value="book"> </div>
+        <div class="field-checkbox"><input type="checkbox" name="book" value="book"> </div>
         <div class="field-title-checkbox">TV: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC2" name="entertainment" value="tv"> </div>
+        <div class="field-checkbox"><input type="checkbox" name="tv" value="tv"> </div>
         <div class="field-title-checkbox">Movie: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC3" name="entertainment" value="movie"> </div>
+        <div class="field-checkbox"><input type="checkbox" name="movie" value="movie"> </div>
         <div class="field-title-checkbox">Radio: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC4" name="entertainment" value="radio"> </div>
-        <div class="field-title-checkbox">Concert: </div>
-        <div class="field-checkbox"><input type="radio" id="radioC5" name="entertainment" value="concert"> </div>
-      </div>
+        <div class="field-checkbox"><input type="checkbox" name="radio" value="radio"> </div>
       </fieldset>
       <br>
       <br>

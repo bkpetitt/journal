@@ -25,7 +25,7 @@
           <li><a href="/journals">List All Journal Entries</a></li>
           <br>
           <li><a href="#">Search by Event</a></li>
-          <li><a href="#">Search by Date</a></li>
+          <li><a href="/journals/search">Search by Date</a></li>
           <li><a href="#">Search by Keyword</a></li>
           <li><a href="#">Search by Event</a></li>
         </ul>
@@ -47,24 +47,79 @@
             <br>
             <div class="title"> Entry Reference:  </div>
             <div class="field"> <%= journal.entperiod %> </div>
+            <div class="title"> User ID:  </div>
+            <div class="field-display-only"><%= journal.userid %></div>
             <br>
             <br>
             <div class="title"> Journal Entry:  </div>
             <div class="field-entry"><%= journal.journalentry %> </div>
-            <!-- <div> <textarea name="journalentry" > <%= journal.journalentry %>
-            </textarea></div> -->
             <br>
+            <fieldset class="subgroup" id="conversation"  >
+              <legend>Conversation</legend>
+              <div>
+              <div class="field-title-checkbox">Meeting:</div>
+              <div class="field-radio"><input type="radio" id="radioC1" name="conversation" value="meeting"></div>
+              <div class="field-title-checkbox">Phone:</div>
+              <div class="field-radio"><input type="radio" id="radioC2" name="conversation" value="telephone"></div>
+              <div class="field-title-checkbox">Email:</div>
+              <div class="field-radio"><input type="radio" id="radioC3" name="conversation" value="email"></div>
+              <div class="field-title-checkbox">Letter:</div>
+              <div class="field-radio"><input type="radio" id="radioC4" name="conversation" value="letter"></div>
+              </div>
+            </fieldset>
+            <fieldset class="subgroup" id="event" >
+              <legend>Event</legend>
+              <div>
+              <div class="field-title-checkbox">Workday: </div>
+              <div class="field-radio"><input type="radio" id="radioC1" name="entevent" value="workday"> </div>
+              <div class="field-title-checkbox">Weekend: </div>
+              <div class="field-radio"><input type="radio" id="radioC2" name="entevent" value="weekend"> </div>
+              <div class="field-title-checkbox">School: </div>
+              <div class="field-radio"><input type="radio" id="radioC3" name="entevent" value="school"> </div>
+              <div class="field-title-checkbox">Vacation: </div>
+              <div class="field-radio"><input type="radio" id="radioC4" name="entevent" value="vacation"> </div>
+              <div class="field-title-checkbox">Sickday: </div>
+              <div class="field-radio"><input type="radio" id="radioC5" name="entevent" value="sickday"> </div>
+              </div>
+            </fieldset>
+            <fieldset class="subgroup" id="meal" >
+              <legend>Meal</legend>
+              <div>
+              <div class="field-title-checkbox">Dine-in: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC1" name="meal" value="dinein"> </div>
+              <div class="field-title-checkbox">Dine-out: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC2" name="meal" value="dineout"> </div>
+              <div class="field-title-checkbox">Carry-out: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC3" name="meal" value="carryout"> </div>
+              <div class="field-title-checkbox">Self Bag: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC3" name="meal" value="selfbag"> </div>
+              <div class="field-title-checkbox">Snack: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC4" name="meal" value="snack"> </div>
+            </div>
+            </fieldset>
+            <fieldset class="subgroup" id="entertainment" >
+              <legend>Entertainment</legend>
+              <div>
+              <div class="field-title-checkbox">Book: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC1" name="entertainment" value="book"> </div>
+              <div class="field-title-checkbox">TV: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC2" name="entertainment" value="tv"> </div>
+              <div class="field-title-checkbox">Movie: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC3" name="entertainment" value="movie"> </div>
+              <div class="field-title-checkbox">Radio: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC4" name="entertainment" value="radio"> </div>
+              <div class="field-title-checkbox">Concert: </div>
+              <div class="field-checkbox"><input type="radio" id="radioC5" name="entertainment" value="concert"> </div>
+            </div>
+            </fieldset>
             <br>
 
-            <div class="title"> User ID:  </div>
-            <div class="field-display-only"><%= journal.userid %></div>
+
 
             <div class="title"> Entry ID:  </div>
             <div class="field-display-only"><%= journal.entryid %></div>
             <div class="title"> Code:  </div>
             <div class="field-display-only"><%= journal.periodcode %></div>
-            <br>
-            <br>
             <div class="title"> Date Code: </div>
             <div class="field-display-only"><%= journal.dateconvt %></div>
             <div class="title"> DB ID:  </div>

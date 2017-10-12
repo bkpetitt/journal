@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Journal - View</title>
+    <title>Journal - Search</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 
@@ -13,9 +13,9 @@
     <header>
       <h1><%= title %></h1>
       <h3><p><%= subtitle %></p></h3>
-      <h2>View Journal Entries</h2>
-      <p>journal - views/journals/index.ejs</p>
-      <% console.log('journal - views/journals/index.ejs'); %>
+      <h2>Search Journal Entries - by Date</h2>
+      <p>journal - views/journals/search.ejs</p>
+      <% console.log('journal - views/journals/search.ejs'); %>
     </header>
 
     <nav>
@@ -33,31 +33,46 @@
       </ul>
     </nav>
 
-<%# periodobj[0] %> %>
     <article>
+      <br>
+      <% let jstart = '2001-06-01' %>
+      <div class="title"> Entry Date: </div>
+      <div class="field-date"><input id="startdate" type="date" min="1962-01-01" value='2001-06-01'/>
+      <button>Enter</button>
+      <ol id="result"></ol>
+      <% console.log('Start: ', jstart); %>
+      <br>
+    </article>
 
+
+    <article>
       <ol>
+        <fieldset>
+          <legend> Journal Search </legend>
+
         <% for (var i = 0; i < journals.length; i++) { %>
-          <% let journal = journals[i]; %>
-          <% let holdEntry = journal.journalentry; %>
-          <fieldset>
-            <legend> Journal Entry </legend>
+          <% recfound = false; %>
+          <% let journalfind = journals[i]; %>
+          <% if (journalfind.entdate == jstart) { %>
+          <%   recfound = true; %>
+          <% } %>
+
+          <% if (recfound == true) { %>
             <div class="title"> Entry Date: </div>
-            <div class="field-date"><%= journal.entdate %></div>
+            <div class="field-date"><%= journalfind.entdate %></div>
             <div class="title"> Entry Title: </div>
-            <div class="field-title" ><%= journal.enttitle %> </div>
+            <div class="field-title"><%= journalfind.enttitle %> </div>
             <div class="title"> Entry Reference: </div>
-            <div class="field"><%= journal.entperiod %> </div>
+            <div class="field"><%= journalfind.entperiod %> </div>
             <br>
             <br>
-          <a href="/journals/<%= journal._id %>">
-            <button>Review Journal Entry</button>
-          </a>
-          <br>
-        </fieldset>
-          <br>
+
+          <% } %>
+
       <% } %>
+        </fieldset>
     </ol>
+
   </article>
 
   <footer>Copyright &copy; Brian K Petitt</footer>

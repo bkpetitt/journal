@@ -27,7 +27,7 @@
       <li><a href="/journals">List All Journal Entries</a></li>
       <br>
       <li><a href="#">Search by Event</a></li>
-      <li><a href="#">Search by Date</a></li>
+      <li><a href="/journals/search">Search by Date</a></li>
       <li><a href="#">Search by Keyword</a></li>
       <li><a href="#">Search by Event</a></li>
       </ul>
@@ -38,23 +38,22 @@
         <legend> Journal Entry </legend>
 
       <form method="POST" action="/journals/<%= journal._id %>">
-          <input type="hidden" name="_method" value="PUT">
+          <input type="hidden" name="_method" value="POST">
           <br>
-          <% jlTitle = journal.enttitle; %>
-          <% fldSize = jlTitle.length+5; %>
+
           <div class="title"> Entry Title:  </div>
-          <div class="field"><input type="text" name="enttitle" size="<%= fldSize %>" value="<%= journal.enttitle %>"></div>
+          <div class="field-title"><input type="text" name="enttitle" size="65" value="<%= journal.enttitle %>" required></div>
           <br>
           <br>
           <div class="title"> Entry Date:  </div>
-          <div class="field-date"><input type="date" name="entdate" value="<%= journal.entdate %>" ></div>
+          <div class="field-date"><input type="date" name="entdate" value="<%= journal.entdate %>" required></div>
           <br>
           <br>
           <div class="title">  Entry Reference:  </div>
-          <div class="field"><input list="period" type="text" name="entperiod" value="<%= journal.entperiod %>" ></div>
+          <div class="field"><input list="period" type="text"  name="entperiod" required ></div>
           <datalist id="period">
             <option value="0000-All Day">
-            <option value="0100-Early Morning">
+            <option value="0100-Early AM">
             <option value="0600-Morning">
             <option value="0700-Breakfast">
             <option value="1200-Midday">
@@ -64,16 +63,79 @@
             <option value="1800-Dinner">
             <option value="2400-Midnight">
           </datalist>
+          <div class="title"> User ID: </div>
+          <div class="field-display-only"><%= journal.userid %></div>
           <br>
           <br>
           <div class="title">  Journal Entry:  </div>
-          <!-- <div class="fldname" id="field-entry"><%= journal.journalentry %> </div> -->
           <div> <textarea name="journalentry" > <%= journal.journalentry %>
           </textarea></div>
           <br>
+          <fieldset class="subgroup" id="conversation"  >
+            <legend>Conversation</legend>
+            <div>
+            <div class="field-title-checkbox">Meeting:</div>
+            <div class="field-radio"><input type="radio" id="radioC1" name="conversation" value="meeting"></div>
+            <div class="field-title-checkbox">Phone:</div>
+            <div class="field-radio"><input type="radio" id="radioC2" name="conversation" value="telephone"></div>
+            <div class="field-title-checkbox">Email:</div>
+            <div class="field-radio"><input type="radio" id="radioC3" name="conversation" value="email"></div>
+            <div class="field-title-checkbox">News:</div>
+            <div class="field-radio"><input type="radio" id="radioC4" name="conversation" value="news"></div>
+            <div class="field-title-checkbox">Letter:</div>
+            <div class="field-radio"><input type="radio" id="radioC5" name="conversation" value="letter"></div>
+            </div>
+          </fieldset>
+          <fieldset class="subgroup" id="event" >
+            <legend>Event</legend>
+            <div>
+            <div class="field-title-checkbox">Workday: </div>
+            <div class="field-radio"><input type="radio" id="radioC1" name="entevent" value="workday"> </div>
+            <div class="field-title-checkbox">Weekend: </div>
+            <div class="field-radio"><input type="radio" id="radioC2" name="entevent" value="weekend"> </div>
+            <div class="field-title-checkbox">School: </div>
+            <div class="field-radio"><input type="radio" id="radioC3" name="entevent" value="school"> </div>
+            <div class="field-title-checkbox">Vacation: </div>
+            <div class="field-radio"><input type="radio" id="radioC4" name="entevent" value="vacation"> </div>
+            <div class="field-title-checkbox">Sickday: </div>
+            <div class="field-radio"><input type="radio" id="radioC5" name="entevent" value="sickday"> </div>
+            </div>
+          </fieldset>
+          <fieldset class="subgroup" id="meal" >
+            <legend>Meal</legend>
+            <div>
+            <div class="field-title-checkbox">Dine-in: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC1" name="meal" value="dinein"> </div>
+            <div class="field-title-checkbox">Dine-out: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC2" name="meal" value="dineout"> </div>
+            <div class="field-title-checkbox">Carry-out: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC3" name="meal" value="carryout"> </div>
+            <div class="field-title-checkbox">Self Bag: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC3" name="meal" value="selfbag"> </div>
+            <div class="field-title-checkbox">Snack: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC4" name="meal" value="snack"> </div>
+          </div>
+          </fieldset>
+          <fieldset class="subgroup" id="entertainment" >
+            <legend>Entertainment</legend>
+            <div>
+            <div class="field-title-checkbox">Book: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC1" name="entertainment" value="book"> </div>
+            <div class="field-title-checkbox">TV: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC2" name="entertainment" value="tv"> </div>
+            <div class="field-title-checkbox">Movie: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC3" name="entertainment" value="movie"> </div>
+            <div class="field-title-checkbox">Radio: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC4" name="entertainment" value="radio"> </div>
+            <div class="field-title-checkbox">Concert: </div>
+            <div class="field-checkbox"><input type="radio" id="radioC5" name="entertainment" value="concert"> </div>
+          </div>
+          </fieldset>
           <br>
-          <div class="title"> User ID: </div>
-          <div class="field-display-only"><%= journal.userid %></div>
+          <input type="submit" value="Update Journal Entry">
+          <br>
+          <br>
+          <br>
           <div class="title">  Entry ID:   </div>
           <div class="field-display-only"><%= journal.entryid %></div>
           <div class="title">  Code:   </div>
@@ -85,14 +147,13 @@
           <div class="title">  DB ID:   </div>
           <div class="field-display-only"><%= journal.dbid %></div>
           <br>
-          <input type="hidden" name="userid" value=<%= journal.userid %> >
+          <input type="hidden" name="userid" value="BKP03" >
           <input type="hidden" name="entryid" value=<%= journal.entryid %> >
           <input type="hidden" name="periodcode" value=<%= journal.periodcode %> >
           <input type="hidden" name="dateconvt" value=<%= journal.dateconvt %> >
           <input type="hidden" name="dbid" value=<%= journal.dbid %> >
           <br>
-          <br>
-          <input type="submit" value="Update Journal Entry">
+
         </form>
       </fieldset>
       </article>
