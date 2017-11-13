@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Journal - Search</title>
+    <title>Journal - SearchDate</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 
@@ -14,8 +14,8 @@
       <h1><%= title %></h1>
       <h3><p><%= subtitle %></p></h3>
       <h2>Search Journal Entries - by Date</h2>
-      <p>journal - views/journals/search.ejs</p>
-      <% console.log('journal - views/journals/search.ejs'); %>
+      <p>journal - views/journals/searchdate.ejs</p>
+      <% console.log('journal - views/journals/searchdate.ejs'); %>
     </header>
 
     <nav>
@@ -27,28 +27,35 @@
         <li><a href="/journals">List All Journal Entries</a></li>
         <br>
         <li><a href="#">Search by Event</a></li>
-        <li><a href="#">Search by Date</a></li>
+        <li><a href="/journals/searchdate">Search by Date</a></li>
         <li><a href="#">Search by Keyword</a></li>
         <li><a href="#">Search by Event</a></li>
       </ul>
     </nav>
 
     <article>
-      <br>
-      <% let jstart = '' %>
-      <div class="title"> Entry Date: </div>
-      <div class="field-date"><input id="startdate" type="date" min="1962-01-01" />
-      <button>Enter</button>
-      <ol id="result"></ol>
-      <% console.log('Start: ', jstart); %>
-      <br>
+      <form method="POST" action="/journals">
+        <br>
+        <% let jstart = '2001-06-01' %>
+        <div class="title"> Entry Date: </div>
+        <div class="field-date"><input id="startdate" type="date" min="1962-01-01" value='2001-06-01'></div>
+        <button class="button">Enter</button>
+        <ol id="result"></ol>
+        <% console.log('Start: ', jstart); %>
+        <p>startdate</p>
+        <br>
+      </form>
     </article>
-
 
     <article>
       <ol>
         <fieldset>
           <legend> Journal Search </legend>
+
+          <div class="title"> Date: </div>
+          <div class="field-date"> <%= jstart %> </div>
+          <br>
+          <br>
 
         <% for (var i = 0; i < journals.length; i++) { %>
           <% recfound = false; %>
@@ -58,13 +65,11 @@
           <% } %>
 
           <% if (recfound == true) { %>
-            <div class="title"> Entry Title: </div>
-            <div class="field"><%= journalfind.enttitle %> </div>
-            <br>
-            <div class="title"> Entry Date: </div>
-            <div class="field-date"><%= journalfind.entdate %></div>
-            <div class="title"> Entry Reference: </div>
-            <div class="field"><%= journalfind.entperiod %> </div>
+
+            <div class="field-ref-search"><%= journalfind.entperiod %> </div>
+            <div class="title"> Event: </div>
+            <div class="field-title-search"><%= journalfind.enttitle %> </div>
+
             <br>
             <br>
 

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Journal - New</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <div class="container">
+
+    <header>
+      <h1><%= title %></h1>
+      <h3><p><%= subtitle %></p></h3>
+      <h2>New Journal Entry</h2>
+      <p>journal - views/journals/new.ejs</p>
+      <% console.log('journal - views/journals/new.ejs'); %>
+
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <br>
+        <li><a href="/journals">List All Journal Entries</a></li>
+        <br>
+        <li><a href="#">Search by Event</a></li>
+        <li><a href="/journals/search">Search by Date</a></li>
+        <li><a href="#">Search by Keyword</a></li>
+        <li><a href="#">Search by Event</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <fieldset>
+        <legend> Journal Entry </legend>
+
+    <form method="POST" action="/journals">
+      <% let userid = "BKP03"; %>
+      <% let entryid = "00000"; %>
+      <% let periodcode = "9999"; %>
+      <% let dateconvt = "20010101"; %>
+      <% let dbid = "JLDB"; %>
+
+      <div class="title"> Entry Title: </div>
+      <div class="field"><input type="text" size="65" name="enttitle" ></div>
+      <br> <br>
+      <div class="title"> Entry Date: </div>
+      <div class="field-date"><input type="date" min="1962-01-01" name="entdate"></div>
+      <br> <br>
+      <div class="title">   Time Reference:  </div>
+      <div class="field-dropdown"> <input list="refperiod" name="entperiod">  
+        <datalist id="refperiod">
+          <option value="0000-All Day"> </option>  
+          <option value="0030-Early AM"> </option>  
+          <option value="0100-Early AM"> </option>  
+          <option value="0130-Early AM"> </option>  
+          <option value="0200-Early AM"> </option>  
+          <option value="0230-Early AM"> </option>  
+          <option value="0300-Early AM"> </option>
+          <option value="0330-Early AM"> </option>  
+          <option value="0400-Early AM"> </option>  
+          <option value="0430-Early AM"> </option>  
+          <option value="0500-Early AM"> </option>  
+          <option value="0530-Early AM"> </option>  
+          <option value="0600-Morning"> </option>  
+          <option value="0630-Morning"> </option>  
+          <option value="0700-Morning"> </option>  
+          <option value="0701-Breakfast"> </option>  
+          <option value="0730-Morning"> </option>  
+          <option value="0800-Morning"> </option>  
+          <option value="0830-Morning"> </option>
+          <option value="0900-Morning"> </option>  
+          <option value="0930-Morning"> </option>  
+          <option value="1000-Morning"> </option>  
+          <option value="1030-Morning"> </option>  
+          <option value="1100-Midday"> </option>  
+          <option value="1130-Midday"> </option>  
+          <option value="1200-Noon"> </option>  
+          <option value="1201-Lunch"> </option>  
+          <option value="1230-Midday"> </option>  
+          <option value="1300-Midday"> </option>
+          <option value="1330-Afternoon"> </option>  
+          <option value="1400-Afternoon"> </option>  
+          <option value="1430-Afternoon"> </option>  
+          <option value="1500-Afternoon"> </option>  
+          <option value="1530-Afternoon"> </option>  
+          <option value="1600-Afternoon"> </option>  
+          <option value="1630-Afternoon"> </option>  
+          <option value="1700-Afternoon"> </option>  
+          <option value="1730-Afternoon"> </option>  
+          <option value="1800-Evening"> </option>  
+          <option value="1801-Dinner"> </option>  
+          <option value="1830-Evening"> </option>  
+          <option value="1900-Evening"> </option>  
+          <option value="1930-Evening"> </option>  
+          <option value="2000-Evening"> </option>  
+          <option value="2030-Evening"> </option>  
+          <option value="2100-Evening"> </option>  
+          <option value="2130-Evening"> </option>  
+          <option value="2200-Evening"> </option>  
+          <option value="2230-Evening"> </option>  
+          <option value="2300-Evening"> </option>  
+          <option value="2330-Evening"> </option>  
+          <option value="2400-Midnight"> </option>
+        </datalist>
+      </div>
+
+
+
+
+
+      <div class="title"> User ID: </div>
+      <div class="field-display-only"><%= userid %></div>
+      <br> <br>
+      <div class="title"> Journal Entry: </div>
+      <div><textarea name="journalentry">
+      </textarea></div>
+      <br>
+      <br>
+
+      <fieldset class="subgroup" id="source"  >
+        <legend>Source</legend>
+        <div>
+        <div class="field-title-checkbox">Meeting:</div>
+        <div class="field-radio"><input type="radio" id="radioC1" name="source" value="meeting"></div>
+        <div class="field-title-checkbox">Phone:</div>
+        <div class="field-radio"><input type="radio" id="radioC2" name="source" value="telephone"></div>
+        <div class="field-title-checkbox">Email:</div>
+        <div class="field-radio"><input type="radio" id="radioC3" name="source" value="email"></div>
+        <div class="field-title-checkbox">News:</div>
+        <div class="field-radio"><input type="radio" id="radioC4" name="source" value="news"></div>
+        <div class="field-title-checkbox">Letter:</div>
+        <div class="field-radio"><input type="radio" id="radioC5" name="source" value="letter"></div>
+        </div>
+      </fieldset>
+      <fieldset class="subgroup" id="event" >
+        <legend>Event</legend>
+        <div>
+        <div class="field-title-checkbox">Workday: </div>
+        <div class="field-radio"><input type="radio" id="radioC1" name="entevent" value="workday"> </div>
+        <div class="field-title-checkbox">Weekend: </div>
+        <div class="field-radio"><input type="radio" id="radioC2" name="entevent" value="weekend"> </div>
+        <div class="field-title-checkbox">School: </div>
+        <div class="field-radio"><input type="radio" id="radioC3" name="entevent" value="school"> </div>
+        <div class="field-title-checkbox">Vacation: </div>
+        <div class="field-radio"><input type="radio" id="radioC4" name="entevent" value="vacation"> </div>
+        <div class="field-title-checkbox">Sickday: </div>
+        <div class="field-radio"><input type="radio" id="radioC5" name="entevent" value="sickday"> </div>
+        </div>
+      </fieldset>
+      <fieldset class="subgroup" id="meal" >
+        <legend>Meal</legend>
+        <div>
+        <div class="field-title-checkbox">Dine-in: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC1" name="meal" value="dinein"> </div>
+        <div class="field-title-checkbox">Dine-out: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC2" name="meal" value="dineout"> </div>
+        <div class="field-title-checkbox">Carry-out: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC3" name="meal" value="carryout"> </div>
+        <div class="field-title-checkbox">Self Bag: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC3" name="meal" value="selfbag"> </div>
+        <div class="field-title-checkbox">Snack: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC4" name="meal" value="snack"> </div>
+      </div>
+      </fieldset>
+      <fieldset class="subgroup" id="entertainment" >
+        <legend>Entertainment</legend>
+        <div>
+        <div class="field-title-checkbox">Book: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC1" name="entertainment" value="book"> </div>
+        <div class="field-title-checkbox">TV: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC2" name="entertainment" value="tv"> </div>
+        <div class="field-title-checkbox">Movie: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC3" name="entertainment" value="movie"> </div>
+        <div class="field-title-checkbox">Radio: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC4" name="entertainment" value="radio"> </div>
+        <div class="field-title-checkbox">Concert: </div>
+        <div class="field-checkbox"><input type="radio" id="radioC5" name="entertainment" value="concert"> </div>
+      </div>
+      </fieldset>
+      <br>
+      <input type="submit" value="Add Journal Entry">
+      <br>
+      <br>
+      <br>
+
+      <div class="title"> Entry ID:   </div>
+      <div class="field-display-only"><%= entryid %></div>
+      <div class="title"> Code:   </div>
+      <div class="field-display-only"><%= periodcode %></div>
+      <div class="title"> Date Code: </div>
+      <div class="field-display-only"><%= dateconvt %></div>
+      <div class="title"> DB ID:   </div>
+      <div class="field-display-only"><%= dbid %></div>
+      <br>
+      <input type="hidden" name="userid" value=<%= userid %> >
+      <input type="hidden" name="entryid" value=<%= entryid %> >
+      <input type="hidden" name="periodcode" value=<%= periodcode %> >
+      <input type="hidden" name="dateconvt" value=<%= dateconvt %> >
+      <input type="hidden" name="dbid" value=<%= dbid %> >
+      <br>
+
+    </form>
+  </fieldset>
+</article>
+
+<footer>Copyright &copy; Brian K Petitt</footer>
+
+  </body>
+</html>

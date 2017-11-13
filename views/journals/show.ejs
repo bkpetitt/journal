@@ -25,7 +25,7 @@
           <li><a href="/journals">List All Journal Entries</a></li>
           <br>
           <li><a href="#">Search by Event</a></li>
-          <li><a href="/journals/search">Search by Date</a></li>
+          <li><a href="/journals/searchdate">Search by Date</a></li>
           <li><a href="#">Search by Keyword</a></li>
           <li><a href="#">Search by Event</a></li>
         </ul>
@@ -37,8 +37,8 @@
 
       <div>
           <br>
-            <div class="title"> Entry Title: </div>
-            <div class="field" ><%= journal.enttitle %> </div>
+            <div class="title"> Event Title: </div>
+            <div class="field-title" ><%= journal.enttitle %> </div>
           <br>
           <br>
             <div class="title"> Entry Date:  </div>
@@ -54,18 +54,19 @@
             <div class="title"> Journal Entry:  </div>
             <div class="field-entry"><%= journal.journalentry %> </div>
             <br>
-            <fieldset class="subgroup" id="conversation"  >
-              <legend>Conversation</legend>
+            <fieldset class="subgroup" id="source"  >
+              <legend>Source</legend>
               <div>
               <div class="field-title-checkbox">Meeting:</div>
-              <div class="field-radio"><input type="radio" id="radioC1" name="conversation" value="meeting"></div>
+              <div class="field-radio"><input type="radio" id="radioC1" name="source" value="meeting"></div>
               <div class="field-title-checkbox">Phone:</div>
-              <div class="field-radio"><input type="radio" id="radioC2" name="conversation" value="telephone"></div>
+              <div class="field-radio"><input type="radio" id="radioC2" name="source" value="telephone"></div>
               <div class="field-title-checkbox">Email:</div>
-              <div class="field-radio"><input type="radio" id="radioC3" name="conversation" value="email"></div>
+              <div class="field-radio"><input type="radio" id="radioC3" name="source" value="email"></div>
+              <div class="field-title-checkbox">News:</div>
+              <div class="field-radio"><input type="radio" id="radioC4" name="source" value="news"></div>
               <div class="field-title-checkbox">Letter:</div>
-              <div class="field-radio"><input type="radio" id="radioC4" name="conversation" value="letter"></div>
-              </div>
+              <div class="field-radio"><input type="radio" id="radioC5" name="source" value="letter"></div>              </div>
             </fieldset>
             <fieldset class="subgroup" id="event" >
               <legend>Event</legend>

@@ -4,14 +4,13 @@ var timestamps = require('mongoose-timestamp');
 
 // var Schema = mongoose.Schema;
 
-var Journal = mongoose.model('journal',
-  {
+var Journal = mongoose.model('journal', {
     userid: String,
     entdate: String,
     entperiod: String,
     enttitle: String,
     journalentry: String,
-    conversation: String,
+    source: String,
     entevent: String,
     meal: String,
     entertain: String,

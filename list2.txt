@@ -1,0 +1,10 @@
+                 <option value="0000-All Day">
+            <option value="0100-Early AM">
+            <option value="0600-Morning">
+            <option value="0700-Breakfast">
+            <option value="1200-Midday">
+            <option value="1200-Lunch">
+            <option value="1300-Afternoon">
+            <option value="1800-Evening">
+            <option value="1800-Dinner">
+            <option value="2400-Midnight">

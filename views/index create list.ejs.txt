@@ -1,0 +1,78 @@
+<ul>
+  <% var listitem = '<option value="0000-All Day">0000-All Day</option><option value="0100-Early AM">0100-Early AM</option><option value="1800-Dinner">1800-Dinner</option>'; %>
+   <% var listitem = ''; %>
+  <% var listitem = '<option value="0000-All Day">0000-All Day</option><option value="0100-Early AM">0100-Early AM</option><option value="1800-Dinner">1800-Dinner</option>'; %>
+   <% for(var key in periodobj){ %>
+    <% var k=key;%>
+    <% var pcode=periodobj[key].refcode; %>
+    <% var pperiod=periodobj[key].refperiod; %>
+    <% var pname=periodobj[key].refname; %>
+    <% var listhld = '<option value="'+pname+'">'+pname+'</option>' %> 
+    <li> <% var listitem = listhld + listitem; %> </li>
+  <%} %>
+  <% var loc = listitem.indexOf('<'); %>
+  <% var loc = listitem.substr(loc-1); %>
+  list: <%=listitem%>
+
+  </ul>
+
+
+
+
+      <div class="title">   Entry Reference:  </div>
+      <div class="field"> <input list="refperiods" name="entperiod">  
+        <datalist id="refperiod">
+          <option value="2400-Midnight">2400-Midnight</option>
+          <option value="2330-Evening">2330-Evening</option>
+          <option value="2300-Evening">2300-Evening</option>
+          <option value="2230-Evening">2230-Evening</option>
+          <option value="2200-Evening">2200-Evening</option>
+          <option value="2130-Evening">2130-Evening</option>
+          <option value="2100-Evening">2100-Evening</option>
+          <option value="2030-Evening">2030-Evening</option>
+          <option value="2000-Evening">2000-Evening</option>
+          <option value="1930-Evening">1930-Evening</option>
+          <option value="1900-Evening">1900-Evening</option>
+          <option value="1830-Evening">1830-Evening</option>
+          <option value="1801-Dinner">1801-Dinner</option>
+          <option value="1800-Evening">1800-Evening</option>
+          <option value="1730-Afternoon">1730-Afternoon</option>
+          <option value="1700-Afternoon">1700-Afternoon</option>
+          <option value="1630-Afternoon">1630-Afternoon</option>
+          <option value="1600-Afternoon">1600-Afternoon</option>
+          <option value="1530-Afternoon">1530-Afternoon</option>
+          <option value="1500-Afternoon">1500-Afternoon</option>
+          <option value="1430-Afternoon">1430-Afternoon</option>
+          <option value="1400-Afternoon">1400-Afternoon</option>
+          <option value="1330-Afternoon">1330-Afternoon</option>
+          <option value="1300-Midday">1300-Midday</option>
+          <option value="1230-Midday">1230-Midday</option>
+          <option value="1201-Lunch">1201-Lunch</option>
+          <option value="1200-Noon">1200-Noon</option>
+          <option value="1130-Midday">1130-Midday</option>
+          <option value="1100-Midday">1100-Midday</option>
+          <option value="1030-Morning">1030-Morning</option>
+          <option value="1000-Morning">1000-Morning</option>
+          <option value="0930-Morning">0930-Morning</option>
+          <option value="0900-Morning">0900-Morning</option>
+          <option value="0830-Morning">0830-Morning</option>
+          <option value="0800-Morning">0800-Morning</option>
+          <option value="0730-Morning">0730-Morning</option>
+          <option value="0701-Breakfast">0701-Breakfast</option>
+          <option value="0700-Morning">0700-Morning</option>
+          <option value="0630-Morning">0630-Morning</option>
+          <option value="0600-Morning">0600-Morning</option>
+          <option value="0530-Early AM">0530-Early AM</option>
+          <option value="0500-Early AM">0500-Early AM</option>
+          <option value="0430-Early AM">0430-Early AM</option>
+          <option value="0400-Early AM">0400-Early AM</option>
+          <option value="0330-Early AM">0330-Early AM</option>
+          <option value="0300-Early AM">0300-Early AM</option>
+          <option value="0230-Early AM">0230-Early AM</option>
+          <option value="0200-Early AM">0200-Early AM</option>
+          <option value="0130-Early AM">0130-Early AM</option>
+          <option value="0100-Early AM">0100-Early AM</option>
+          <option value="0030-Early AM">0030-Early AM</option>
+          <option value="0000-All Day">0000-All Day</option>
+        </datalist>
+      </div>

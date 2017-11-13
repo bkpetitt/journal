@@ -37,18 +37,29 @@
       <br>
       <% let jstart = '2001-06-01' %>
       <div class="title"> Entry Date: </div>
-      <div class="field-date"><input id="startdate" type="date" min="1962-01-01" value='2001-06-01'/>
-      <button>Enter</button>
+      <div class="field-date"><input id="startdate" type="date" min="1962-01-01" value='2001-06-01'></div>
+      <button class="button">Enter</button>
       <ol id="result"></ol>
       <% console.log('Start: ', jstart); %>
       <br>
     </article>
 
+    <p id="dateHold"></p>
+    <script>
+
+
+
+    </script>
 
     <article>
       <ol>
         <fieldset>
           <legend> Journal Search </legend>
+
+          <div class="title"> Date: </div>
+          <div class="field-date"> <%= jstart %> </div>
+          <br>
+          <br>
 
         <% for (var i = 0; i < journals.length; i++) { %>
           <% recfound = false; %>
@@ -58,12 +69,11 @@
           <% } %>
 
           <% if (recfound == true) { %>
-            <div class="title"> Entry Date: </div>
-            <div class="field-date"><%= journalfind.entdate %></div>
-            <div class="title"> Entry Title: </div>
-            <div class="field-title"><%= journalfind.enttitle %> </div>
-            <div class="title"> Entry Reference: </div>
-            <div class="field"><%= journalfind.entperiod %> </div>
+
+            <div class="field-ref-search"><%= journalfind.entperiod %> </div>
+            <div class="title"> Event: </div>
+            <div class="field-title-search"><%= journalfind.enttitle %> </div>
+
             <br>
             <br>
 
