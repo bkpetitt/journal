@@ -12,6 +12,7 @@ var Journal = mongoose.model('journal', {
     journalentry: String,
     source: String,
     entevent: String,
+    enteventtime: String,
     meal: String,
     entertain: String,
     entertainurl: String,

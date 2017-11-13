@@ -73,73 +73,77 @@
             <div class="field-display-only"><%= userid %></div>
             <br>
             <br>
+
             <div class="title">   Journal Entry:  </div>
-            <div> <textarea name="journalentry" col="50" row="9" >
+            <div> <textarea class="textcomment" name="journalentry" col="50" row="9" >
               </textarea>  </div>
             <br>
+
+            <fieldset class="subgroup" id="event" >
+              <legend>Relative</legend>
+              <div>
+                <div class="field-radio"><input type="checkbox" id="checkr1" name="enteventtime" value="workday"> </div>
+                <div class="field-title-checkbox">Workday</div>
+                <div class="field-radio"><input type="checkbox" id="checkr2" name="enteventtime" value="school"> </div>
+                <div class="field-title-checkbox">School</div>
+                <div class="field-radio"><input type="checkbox" id="checkr3" name="enteventtime" value="dayoff"> </div>
+                <div class="field-title-checkbox">Day-off</div>
+                <div class="field-radio"><input type="checkbox" id="checkr4" name="enteventtime" value="vacation"> </div>
+                <div class="field-title-checkbox">Vacation</div>
+                <div class="field-radio"><input type="checkbox" id="checkr5" name="enteventtime" value="sickday"> </div>
+                <div class="field-title-checkbox">Sickday</div>
+              </div>
+            </fieldset>
+
             <fieldset class="subgroup" id="source"  >
               <legend>Source</legend>
               <div>
 
 
-                <div class="field-radio"><input type="radio" id="radioc1" name="source" value="meeting"></div>
-                <div class="field-title-radio"><label for="radioc1">Meeting</label></div>
-                <div class="field-radio"><input type="radio" id="radioc2" name="source" value="telephone"></div>
-                <div class="field-title-radio"><label for="radioc2">Phone</label></div>
-                <div class="field-radio"><input type="radio" id="radioc3" name="source" value="email"></div>
-                <div class="field-title-radio"><label for="radioc3">Email</label></div>
-                <div class="field-radio"><input type="radio" id="radioc4" name="source" value="news"></div>
-                <div class="field-title-radio"><label for="radioc4">News</label></div>
-                <div class="field-radio"><input type="radio" id="radioc5" name="source" value="letter"></div>
-                <div class="field-title-radio"><label for="radioc5">Letter</label></div>
+                <div class="field-radio"><input type="radio" id="radioS1" name="source" value="meeting"></div>
+                <div class="field-title-radio"><label for="radioS1">Meeting</label></div>
+                <div class="field-radio"><input type="radio" id="radioS2" name="source" value="telephone"></div>
+                <div class="field-title-radio"><label for="radioS2">Phone</label></div>
+                <div class="field-radio"><input type="radio" id="radioS3" name="source" value="email"></div>
+                <div class="field-title-radio"><label for="radioS3">Email</label></div>
+                <div class="field-radio"><input type="radio" id="radioS4" name="source" value="news"></div>
+                <div class="field-title-radio"><label for="radioS4">News</label></div>
+                <div class="field-radio"><input type="radio" id="radioS5" name="source" value="letter"></div>
+                <div class="field-title-radio"><label for="radioS5">Letter</label></div>
               
               </div>
 
             </fieldset>
 
-            <fieldset class="subgroup" id="event" >
-              <legend>Event</legend>
-              <div>
-                <div class="field-radio"><input type="radio" id="radioC1" name="entevent" value="workday"> </div>
-                <div class="field-title-radio">Workday </div>
-                <div class="field-radio"><input type="radio" id="radioC2" name="entevent" value="weekend"> </div>
-                <div class="field-title-radio">Weekend </div>
-                <div class="field-radio"><input type="radio" id="radioC3" name="entevent" value="school"> </div>
-                <div class="field-title-radio">School </div>
-                <div class="field-radio"><input type="radio" id="radioC3" name="entevent" value="school"> </div>
-                <div class="field-title-radio">Vacation </div>
-                <div class="field-radio"><input type="radio" id="radioC5" name="entevent" value="sickday"> </div>
-                <div class="field-title-radio">Sickday </div>
-              </div>
-            </fieldset>
+
             <fieldset class="subgroup" id="meal" >
               <legend>Meal</legend>
               <div>
-                <div class="field-radio"><input type="radio" id="radioC1" name="meal" value="dinein"> </div>
-                <div class="field-title-radio">Dine-in </div>
-                <div class="field-radio"><input type="radio" id="radioC2" name="meal" value="dineout"> </div>
-                <div class="field-title-radio">Dine-out </div>
-                <div class="field-radio"><input type="radio" id="radioC3" name="meal" value="carryout"> </div>
-                <div class="field-title-radio">Carry-out </div>
-                <div class="field-radio"><input type="radio" id="radioC3" name="meal" value="selfbag"> </div>
-                <div class="field-title-radio">Self Bag </div>
-                <div class="field-radio"><input type="radio" id="radioC4" name="meal" value="snack"> </div>
-                <div class="field-title-radio">Snack </div>
+                <div class="field-radio"><input type="radio" id="radioM1" name="meal" value="dinein"> </div>
+                <div class="field-title-radio"><label for="radioM1">Dine-in</label></div>
+                <div class="field-radio"><input type="radio" id="radioM2" name="meal" value="dineout"> </div>
+                <div class="field-title-radio"><label for="radioM2">Dine-out</label></div>
+                <div class="field-radio"><input type="radio" id="radioM3" name="meal" value="carryout"> </div>
+                <div class="field-title-radio"><label for="radioM3">Carry-out</label></div>
+                <div class="field-radio"><input type="radio" id="radioM4" name="meal" value="selfbag"> </div>
+                <div class="field-title-radio"><label for="radioM4">Self Bag</label></div>
+                <div class="field-radio"><input type="radio" id="radioM5" name="meal" value="snack"> </div>
+                <div class="field-title-radio"><label for="radioM5">Snack</label></div>
 
               </div>
             </fieldset>
             <fieldset class="subgroup" id="entertainment" >
               <legend>Entertainment</legend>
               <div>
-                <div class="field-radio"><input type="radio" id="radioC1" name="entertainment" value="book"> </div>
-                <div class="field-title-radio">Book </div>
-                <div class="field-radio"><input type="radio" id="radioC2" name="entertainment" value="tv"> </div>
+                <div class="field-radio"><input type="radio" id="radioE1" name="entertainment" value="tv"> </div>
                 <div class="field-title-radio">TV </div>
-                <div class="field-radio"><input type="radio" id="radioC3" name="entertainment" value="movie"> </div>
+                <div class="field-radio"><input type="radio" id="radioE2" name="entertainment" value="book"> </div>
+                <div class="field-title-radio">Book </div>
+                <div class="field-radio"><input type="radio" id="radioE3" name="entertainment" value="movie"> </div>
                 <div class="field-title-radio">Movie </div>
-                <div class="field-radio"><input type="radio" id="radioC4" name="entertainment" value="radio"> </div>
+                <div class="field-radio"><input type="radio" id="radioE4" name="entertainment" value="radio"> </div>
                 <div class="field-title-radio">Radio </div>
-                <div class="field-radio"><input type="radio" id="radioC5" name="entertainment" value="concert"> </div>
+                <div class="field-radio"><input type="radio" id="radioE5" name="entertainment" value="concert"> </div>
                 <div class="field-title-radio">Concert </div>
               </div>
             </fieldset>
